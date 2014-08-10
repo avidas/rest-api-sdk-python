@@ -1,8 +1,7 @@
 # Flask application for a developer/merchant working with the subscription apis
 
-from flask import Flask, session, render_template, url_for, redirect, request, flash, g
+from flask import Flask, session, render_template, url_for, redirect, request
 from paypalrestsdk import BillingPlan, BillingAgreement, configure
-import paypal_config
 import logging
 import os
 
@@ -10,10 +9,24 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
+#Get configuration via paypal_config file or environment variables
+try:
+    import paypal_config
+    mode = paypal_config.MODE
+    client_id = paypal_config.CLIENT_ID
+    client_secret = paypal_config.CLIENT_SECRET
+    secret_key = 'secret'
+except:
+    import os
+    mode = os.environ['MODE'],
+    client_id = os.environ['CLIENT_ID'],
+    client_secret = os.environ['CLIENT_SECRET'],
+    secret_key = os.environ['SECRET_KEY']
+
 # Merchant and User login for the app
 app.config.update(dict(
     DEBUG=True,
-    SECRET_KEY='secret',
+    SECRET_KEY=secret_key,
     MERCHANT_USERNAME='merchant',
     MERCHANT_PASSWORD='mpass',
     CUSTOMER_USERNAME='customer',
@@ -22,9 +35,9 @@ app.config.update(dict(
 
 # Initialize PayPal sdk
 configure({
-    "mode": paypal_config.MODE,
-    "client_id": paypal_config.CLIENT_ID,
-    "client_secret": paypal_config.CLIENT_SECRET
+    "mode": mode,
+    "client_id": client_id,
+    "client_secret": client_secret
 })
 
 

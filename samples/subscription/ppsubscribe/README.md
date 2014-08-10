@@ -1,7 +1,7 @@
 ppsubscribe - Subscribe to the Hipster Magazine
 ===========
 
-Flask application for a developer/merchant using Paypal's subscription apis in the python sdk. A merchant (The Hipster Magazine publisher in this app) can log in, create a new billing plan and activate the plan. A customer (subscriber to The Hipster Magazine) can look at the available plans and agree to subscribe to a plan, forming a billing agreement and view the transaction history on that agreement. Deployed on Heroku at http://ppsubscribe.herokuapp.com/
+Flask application for a developer/merchant using Paypal's subscription apis in the python sdk. A merchant (The Hipster Magazine publisher in this app) can log in, create a new billing plan and activate the plan. A customer (subscriber to The Hipster Magazine) can look at the available plans and agree to subscribe to a plan, forming a billing agreement and view the transaction history on that agreement. Deployed on Heroku at http://ppsubscribe.herokuapp.com/ or you can deploy it with your own credentials using instructions below.
 
 Install requirements using pip:
 
@@ -15,6 +15,10 @@ Get your client credentials from https://developer.paypal.com/ and put them in a
     MODE = "sandbox"
     CLIENT_ID = "<client id from sandbox>"
     CLIENT_SECRET = "<client secret from sandbox>"
+
+Once you have this credentials, you can also deploy the app to heroku yourself using the heroku button.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ## Run the server
 

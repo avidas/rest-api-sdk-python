@@ -1,0 +1,21 @@
+{
+  "name": "ppsubscribe - Subscribe to Hipster magazine today!",
+  "description": "Sample Flask application to demonstrate use of the PayPal REST subscription APIs",
+  "keywords": ["paypal", "python", "flask"],
+  "repository": "https://github.com/avidas/rest-api-sdk-python/tree/heroku-button/samples/subscription/ppsubscribe",
+  "env": {
+    "SECRET_KEY": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "MODE": {
+      "description": "live or sandbox"
+    },
+    "CLIENT_ID": {
+      "description": "Your PayPal application client id"
+    },
+    "CLIENT_SECRET": {
+      "description": "Your PayPal application client secret"
+    }
+  }
+}
